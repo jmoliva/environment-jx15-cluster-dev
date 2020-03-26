@@ -1,25 +1,66 @@
+autoUpdate:
+  enabled: false
+  schedule: ""
+bootConfigURL: https://github.com/jenkins-x/jenkins-x-boot-config
 cluster:
-  clusterName: ""
-  environmentGitOwner: ""
-  environmentGitPublic: false
-  project: ""
-  provider: gke
-  zone: ""
-gitops: true
+  clusterName: jx15-cluster
+  devEnvApprovers:
+  - jmoliva
+  environmentGitOwner: jmoliva
+  environmentGitPublic: true
+  gitKind: github
+  gitName: github
+  gitServer: https://github.com
+  namespace: jx
+  provider: iks
+  registry: de.icr.io
 environments:
-- key: dev
-- key: staging
-- key: production
+- ingress:
+    domain: jx15-cluster-44f776889ff639c7e053e4520bd46cec-0000.eu-de.containers.appdomain.cloud
+    externalDNS: false
+    namespaceSubDomain: -jx.
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: dev
+  repository: environment-jx15-cluster-dev
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: staging
+  repository: environment-jx15-cluster-staging
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: production
+  repository: environment-jx15-cluster-production
+gitops: true
 ingress:
-  domain: ""
+  domain: jx15-cluster-44f776889ff639c7e053e4520bd46cec-0000.eu-de.containers.appdomain.cloud
   externalDNS: false
+  namespaceSubDomain: -jx.
   tls:
     email: ""
     enabled: false
     production: false
 kaniko: true
+repository: nexus
 secretStorage: local
 storage:
+  backup:
+    enabled: false
+    url: ""
   logs:
     enabled: false
     url: ""
@@ -29,7 +70,11 @@ storage:
   repository:
     enabled: false
     url: ""
+vault: {}
+velero:
+  schedule: ""
+  ttl: ""
 versionStream:
-  ref: "master"
+  ref: v1.0.405
   url: https://github.com/jenkins-x/jenkins-x-versions.git
 webhook: prow

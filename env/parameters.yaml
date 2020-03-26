@@ -1,0 +1,10 @@
+adminUser:
+  password: local:jx15-cluster/adminUser:password
+  username: admin
+enableDocker: false
+pipelineUser:
+  email: jean-michel.oliva@fr.ibm.com
+  token: local:jx15-cluster/pipelineUser:token
+  username: jmoliva
+prow:
+  hmacToken: local:jx15-cluster/prow:hmacToken

@@ -57,22 +57,4 @@ velero:
       bucket: {{ .Requirements.storage.backup.url | removeScheme | quote }}
       config:
         storageAccount: {{ .Requirements.velero.serviceAccount | quote }}
-{{- else if eq .Requirements.cluster.provider "iks" }}
-  initContainers:
-  - name: velero-plugin-for-aws
-    image: velero/velero-plugin-for-aws:v1.0.0
-    imagePullPolicy: IfNotPresent
-    volumeMounts:
-    - mountPath: /target
-      name: plugins
-  configuration:
-    provider: aws
-    backupStorageLocation:
-      name: aws
-      bucket: bucket-name
-      config:
-        region: {{ .Requirements.cluster.region | quote }}
-        s3ForcePathStyle: "true"
-        s3Url: {{ .Requirements.storage.backup.url | quote }}
 {{- end }}
-
