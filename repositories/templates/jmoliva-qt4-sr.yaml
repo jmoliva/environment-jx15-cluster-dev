@@ -1,0 +1,21 @@
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  creationTimestamp: null
+  labels:
+    owner: jmoliva
+    provider: github
+    repository: qt4
+  name: jmoliva-qt4
+spec:
+  description: Imported application for jmoliva/qt4
+  httpCloneURL: https://github.com/jmoliva/qt4.git
+  org: jmoliva
+  provider: https://github.com
+  providerKind: github
+  providerName: github
+  repo: qt4
+  scheduler:
+    kind: ""
+    name: ""
+  url: https://github.com/jmoliva/qt4.git

@@ -1,0 +1,7 @@
+dependencies:
+- host: github.com
+  owner: jmoliva
+  repo: qt4
+  url: https://github.com/jmoliva/qt4.git
+  version: ""
+  versionURL: ""
